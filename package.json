@@ -1,7 +1,7 @@
 {
-  "name": "mapapp",
+  "name": "devconnector",
   "version": "1.0.0",
-  "description": "Social Service for Searching Spot on Map",
+  "description": "Social network for developers",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -10,7 +10,7 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Shinya Takahashi",
+  "author": "Brad Traversy",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
