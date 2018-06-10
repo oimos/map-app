@@ -14,15 +14,15 @@ class MapView extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getGeoLocation()
     this.delayedShowMarker()
   }
 
   delayedShowMarker = () => {
-    setTimeout(() => {
+    // setTimeout(() => {
       this.setState({ isMarkerShown: true })
-    }, 5000)
+    // }, 1000)
   }
 
   handleMarkerClick = () => {
