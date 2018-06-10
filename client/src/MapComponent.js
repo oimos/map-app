@@ -14,7 +14,7 @@ const MapComponent = compose(
 )((props) =>
   props.currentLocation.lat !== 0 ?
   <GoogleMap
-    defaultZoom={8}
+    defaultZoom={19}
     defaultCenter={{ lat: props.currentLocation.lat, lng: props.currentLocation.lng }}
   >
     {props.isMarkerShown && <Marker position={{ lat: props.currentLocation.lat, lng: props.currentLocation.lng }} onClick={props.onMarkerClick} />}
