@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import MapView from './MapView'
 import './App.css';
 
@@ -8,8 +8,9 @@ class App extends Component {
     return (
       <div
         className="App"
-        style={{height: '300px', width: '300px'}}>
+        style={{height: '400px', width: '600px'}}>
         <MapView />
+        <button onClick={() => this.props.handleClick()}>Add</button>
       </div>
     );
   }

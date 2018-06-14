@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
-import MapComponent from './MapComponent'
+import MapComponent from './map/MapComponent'
 
 class MapView extends Component {
   constructor(props){
@@ -42,8 +42,8 @@ class MapView extends Component {
               lng: position.coords.longitude
             }
           }))
-          console.log(position.coords.latitude)
-          console.log(position.coords.longitude)
+          // console.log(position.coords.latitude)
+          // console.log(position.coords.longitude)
         },
         () => { console.log('denied!') }
       )
@@ -56,11 +56,13 @@ class MapView extends Component {
   render() {
     console.log(this.state.currentLatLng)
     return (
-      <MapComponent
-        isMarkerShown={this.state.isMarkerShown}
-        onMarkerClick={this.handleMarkerClick}
-        currentLocation={this.state.currentLatLng}
-      />
+      <Fragment>
+        <MapComponent
+          isMarkerShown={this.state.isMarkerShown}
+          onMarkerClick={this.handleMarkerClick}
+          currentLocation={this.state.currentLatLng}
+        />
+      </Fragment>
     )
   }
 }

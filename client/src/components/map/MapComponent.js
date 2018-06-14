@@ -1,7 +1,8 @@
 import React from 'react'
 import { compose, withProps } from 'recompose'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
-import loadingImg from './img/spinner-of-dots.svg'
+import GurunaviData from './GurunaviData'
+import loadingImg from '../../img/spinner-of-dots.svg'
 
 const MapComponent = compose(
   withProps({
@@ -16,15 +17,26 @@ const MapComponent = compose(
   props.currentLocation.lat !== 0 ?
   <div>
   <GoogleMap
-    defaultZoom={19}
+    defaultZoom={16}
     defaultCenter={{ lat: props.currentLocation.lat, lng: props.currentLocation.lng }}
   >
-    {props.isMarkerShown && <Marker position={{ lat: props.currentLocation.lat, lng: props.currentLocation.lng }} onClick={props.onMarkerClick} />}
+    {props.isMarkerShown &&
+      <Marker
+        position={
+          {
+            lat: props.currentLocation.lat,
+            lng: props.currentLocation.lng
+          }
+        }
+        onClick={props.onMarkerClick} />
+    }
   </GoogleMap>
+  <GurunaviData latlng={props.currentLocation}/>
   </div>
   :
   <p>Loading...
     <img src={loadingImg}
+      alt="Loading"
       width="40"
       height="40"
       style={{
