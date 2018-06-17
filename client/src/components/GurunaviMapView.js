@@ -10,8 +10,6 @@ class GurunaviData extends Component {
     }
   }
   componentWillReceiveProps = (nextProps) => {
-    // this.props.getGurunaviData();
-    console.log(nextProps)
     let storeData = nextProps.storeData;
     let storeObj = {};
     let storeTmp = [];
@@ -36,13 +34,11 @@ class GurunaviData extends Component {
       <div>
         {
           this.state.storeInfo.map((store, index) => {
-            console.log(store.photo.areaname_l)
-            // if(store.photo.image_url.url_200){
-              if(store.photo.areaname_l){
+            console.log(store.hasOwnProperty('photo'))
+            if(store.hasOwnProperty('photo')){
               return (
-                <div>
-                  {/* <img src={store.photo.image_url.url_200} /> */}
-                  {store.photo.areaname_l}
+                <div key={`${store.photo.shop_id}_${index}`}>
+                  <img src={store.photo.image_url.url_200} />
                 </div>
               )
             }

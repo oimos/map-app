@@ -4,11 +4,19 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-map
 import GurunaviData from '../GurunaviMapView'
 import loadingImg from '../../img/spinner-of-dots.svg'
 
+
+  let dummyArray = [
+    {lat: 35.6109236, lng: 139.6300704},
+    {lat: 35.6112259, lng: 139.6330738},
+    {lat: 35.6103314, lng: 139.6304962},
+    {lat: 35.6101233, lng: 139.6303701}
+  ]
+
 const MapComponent = compose(
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCOkhZueeUtMT1DjhNtqj0_7T2Urme8Zww&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px`, position: 'relative' }} />,
+    containerElement: <div style={{ height: `800px`, position: 'relative' }} />,
     mapElement: <div style={{ height: `100%` }} />,
   }),
   withScriptjs,
@@ -17,18 +25,29 @@ const MapComponent = compose(
   props.currentLocation.lat !== 0 ?
   <div>
   <GoogleMap
-    defaultZoom={16}
+    defaultZoom={15}
     defaultCenter={{ lat: props.currentLocation.lat, lng: props.currentLocation.lng }}
   >
     {props.isMarkerShown &&
-      <Marker
-        position={
-          {
-            lat: props.currentLocation.lat,
-            lng: props.currentLocation.lng
-          }
-        }
-        onClick={props.onMarkerClick} />
+      dummyArray.map((marker, index) => {
+        console.log(marker)
+        return (
+          <Marker
+            position={marker}
+            title='click to zoonm'
+            key={index}
+            />
+        )
+      })
+
+      // <Marker
+      //   position={
+      //     {
+      //       lat: props.currentLocation.lat,
+      //       lng: props.currentLocation.lng
+      //     }
+      //   }
+      //   onClick={props.onMarkerClick} />
     }
   </GoogleMap>
   <GurunaviData latlng={props.currentLocation}/>
