@@ -1,28 +1,30 @@
 import React, { Component, Fragment } from 'react'
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 import MapComponent from './map/MapComponent'
 
 class MapView extends Component {
   constructor(props){
     super(props)
     this.state = {
-      currentLatLng: {
-        lat: 0,
-        lng: 0
-      },
+      currentLatLng: props.currentLatLng,
+      geolocationEnabled: false,
       isMarkerShown: false
     }
   }
 
-  componentWillMount() {
-    this.getGeoLocation()
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({
+      currentLatLng: nextProps.currentLatLng,
+      geolocationEnabled: nextProps.geolocationEnabled
+    })
     this.delayedShowMarker()
   }
 
+  componentDidMount = () => {
+    this.props.handleCurrentLocation();
+  }
+
   delayedShowMarker = () => {
-    // setTimeout(() => {
-      this.setState({ isMarkerShown: true })
-    // }, 1000)
+    this.setState({ isMarkerShown: true })
   }
 
   handleMarkerClick = () => {
@@ -30,31 +32,9 @@ class MapView extends Component {
     this.delayedShowMarker()
   }
 
-  getGeoLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        position => {
-          console.log(position.coords)
-          this.setState(prevState =>({
-            currentLatLng: {
-              ...prevState.currentLatLng,
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            }
-          }))
-          // console.log(position.coords.latitude)
-          // console.log(position.coords.longitude)
-        },
-        () => { console.log('denied!') }
-      )
-    } else {
-      error => console.log(error)
-    }
-  }
-
   // key: 'AIzaSyCOkhZueeUtMT1DjhNtqj0_7T2Urme8Zww',
   render() {
-    console.log(this.state.currentLatLng)
+
     return (
       <Fragment>
         <MapComponent
