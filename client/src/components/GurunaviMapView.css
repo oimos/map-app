@@ -1,0 +1,17 @@
+.carouselItem{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.carouselItem__photo{
+  flex: 1 0 100px;
+  margin: 0;
+}
+
+.carouselItem__text{
+  flex: 1 0 auto;
+  margin: 0;
+  text-align: left;
+  font-size: 10px;
+}
