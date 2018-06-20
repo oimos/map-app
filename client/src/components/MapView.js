@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import MapComponent from './map/MapComponent'
+import MapComponent from '../container/MapComponent'
 
 class MapView extends Component {
   constructor(props){
@@ -21,6 +21,7 @@ class MapView extends Component {
 
   componentDidMount = () => {
     this.props.handleCurrentLocation();
+    // console.log(this.props)
   }
 
   delayedShowMarker = () => {

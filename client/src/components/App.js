@@ -25,7 +25,7 @@ class App extends Component {
       return (
         <div
           className="App"
-          style={{height: '800px', width: '600px'}}>
+          style={{height: '400px', width: '600px'}}>
           <MapView />
           <GurunaviMapView />
           <button onClick={() => this.props.handleClick()}>Add</button>
