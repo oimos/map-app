@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import GurunaviMapView from '../components/GurunaviMapView';
+import LocationSlide from '../components/LocationSlide/LocationSlide';
 // import { getGurunaviData } from '../action';
 
 const mapStateToProps = (state) => {
@@ -17,4 +17,4 @@ const mapStateToProps = (state) => {
 //   }
 // }
 
-export default connect(mapStateToProps)(GurunaviMapView)
+export default connect(mapStateToProps)(LocationSlide)

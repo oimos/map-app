@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import MapView from '../container/MapView'
-import GurunaviMapView from '../container/GurunaviMapView'
+import Map from '../container/Map'
+import LocationSlide from '../container/LocationSlide'
 import './App.css';
 
 class App extends Component {
@@ -26,8 +26,8 @@ class App extends Component {
         <div
           className="App"
           style={{height: '400px', width: '600px'}}>
-          <MapView />
-          <GurunaviMapView />
+          <Map />
+          <LocationSlide />
           <button onClick={() => this.props.handleClick()}>Add</button>
         </div>
       );

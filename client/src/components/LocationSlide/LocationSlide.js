@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import isEmpty from '../util/is-empty'
-import './GurunaviMapView.css'
+import isEmpty from '../../util/is-empty'
+import './LocationSlide.css'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick";
 
-class GurunaviData extends Component {
+class LocationSlide extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -35,7 +35,7 @@ class GurunaviData extends Component {
   }
   render() {
     let settings = {
-      dots: false,
+      dots: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
@@ -89,4 +89,4 @@ class GurunaviData extends Component {
   }
 }
 
-export default GurunaviData
+export default LocationSlide

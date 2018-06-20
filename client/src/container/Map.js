@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import MapView from '../components/MapView';
+import Map from '../components/Map/Map';
 import { getCurrentLocation } from '../action';
 
 const mapStateToProps = (state) => {
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MapView)
+export default connect(mapStateToProps, mapDispatchToProps)(Map)

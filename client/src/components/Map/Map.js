@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import MapComponent from '../container/MapComponent'
+import MapInfo from '../../container/MapInfo'
 
 class MapView extends Component {
   constructor(props){
@@ -21,24 +21,24 @@ class MapView extends Component {
 
   componentDidMount = () => {
     this.props.handleCurrentLocation();
-    // console.log(this.props)
   }
 
   delayedShowMarker = () => {
     this.setState({ isMarkerShown: true })
   }
 
-  handleMarkerClick = () => {
-    this.setState({ isMarkerShown: false })
+  handleMarkerClick = (i) => {
+    console.log(i)
+    console.log(this.props.storeData.data.response[i].photo.shop_name)
+    console.log(this.props.storeData.data.response[i].photo.image_url.url_200)
+    // this.setState({ isMarkerShown: false })
     this.delayedShowMarker()
   }
 
-  // key: 'AIzaSyCOkhZueeUtMT1DjhNtqj0_7T2Urme8Zww',
   render() {
-
     return (
       <Fragment>
-        <MapComponent
+        <MapInfo
           isMarkerShown={this.state.isMarkerShown}
           onMarkerClick={this.handleMarkerClick}
           currentLocation={this.state.currentLatLng}
@@ -47,5 +47,5 @@ class MapView extends Component {
     )
   }
 }
-
+// key: 'AIzaSyCOkhZueeUtMT1DjhNtqj0_7T2Urme8Zww',
 export default MapView;

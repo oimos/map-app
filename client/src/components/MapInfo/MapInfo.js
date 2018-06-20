@@ -1,8 +1,8 @@
 import React from 'react'
 import { compose, withProps } from 'recompose'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
-import GurunaviData from './GurunaviMapView'
-import loadingImg from '../img/spinner-of-dots.svg'
+import LocationSlide from '../LocationSlide/LocationSlide'
+import loadingImg from '../../img/spinner-of-dots.svg'
 
 
 // let dummyArray = [
@@ -64,7 +64,7 @@ const MapComponent = compose(
                 lng: parseFloat(shop.photo.longitude)
               }
             }
-            onClick={props.onMarkerClick} />
+            onClick={() => props.onMarkerClick(index)} />
         )
       })
       // <Marker
@@ -77,7 +77,7 @@ const MapComponent = compose(
       //   onClick={props.onMarkerClick} />
     }
   </GoogleMap>
-  <GurunaviData latlng={props.currentLocation}/>
+  <LocationSlide latlng={props.currentLocation}/>
   </div>
   :
   <p>Loading...
