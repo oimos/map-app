@@ -11,12 +11,16 @@
     "react-scripts": "1.1.4",
     "react-slick": "^0.23.1",
     "recompose": "^0.27.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "snyk": "^1.161.1"
   },
   "scripts": {
     "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
