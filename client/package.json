@@ -8,7 +8,7 @@
     "react-dom": "^16.4.0",
     "react-google-maps": "^9.4.5",
     "react-redux": "^5.0.7",
-    "react-scripts": "1.1.4",
+    "react-scripts": "3.4.2",
     "react-slick": "^0.23.1",
     "recompose": "^0.27.1",
     "slick-carousel": "^1.8.1"
